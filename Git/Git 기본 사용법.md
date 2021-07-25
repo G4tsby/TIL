@@ -49,7 +49,8 @@ git commit -m "커밋 요약
 - 스테이지에 기록된 시점의 파일을 리포지토리에 변경 내역에 반영.
 - `-m` : 커밋에 메시지 추가.
 - `-a` : 추가된 파일 자동으로 커밋.
-- `-am` : 한번에 add하고 커밋.  
+- `-am` : 한번에 add하고 커밋.
+- **커밋은 반드시 실행 가능한 단위로 해야한다.**  
 <택배상자를 포장하기>
 
 ```bash
@@ -67,8 +68,6 @@ git log --graph
       Added README.md
 ```
 - 커밋마다 고유한 해시값 존재.
-- `git checkout [해시값]` 으로 해당 커밋 시점으로 이동 가능.
-- 따라서 **커밋은 반드시 실행 가능한 단위로 해야한다.**
 
 <br>
 
@@ -78,3 +77,15 @@ git push origin master
 - 변경 사항을 리모트 서버에 업로드.
 - `--set-upstream` 옵션을 사용하면 다음 푸쉬부터는 `git push`만 입력해도 처음 입력했던 브랜치에 푸쉬된다.
 <택배 부치기>
+
+```bash
+git checkout <시점>
+```  
+- change 느낌. **HEAD가 가리키는 Branch를** 변경한다.
+- <시점> 에는 Branch이름 혹은 Commit ID 가 들어간다.
+
+```bash
+git reset 
+```
+- roll back 느낌. **Branch가 가리키는 commit** 을 변경한다.
+- `--hard` 옵션으로 working directory의 내용까지 변경한다. **위험!**
